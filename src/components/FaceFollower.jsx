@@ -32,9 +32,10 @@ const FaceFollower = ({ faceIndex, selectedModel }) => {
   useEffect(() => {
     if (selectedModel !== "cube") {
       const loader = new GLTFLoader();
-      const modelUrl = selectedModel.startsWith("/")
-        ? selectedModel
-        : `/${selectedModel}`;
+      const modelUrl = `${import.meta.env.BASE_URL}${selectedModel}`;
+      // const modelUrl = selectedModel.startsWith("/")
+      //   ? selectedModel
+      //   : `/${selectedModel}`;
       loader.load(
         modelUrl,
         (gltf) => {
